@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowRight, FileText, Zap, ShieldCheck, Activity, Server, Cpu, Layers } from 'lucide-react';
+import { ArrowRight, FileText, Zap, ShieldCheck, Activity, Server, Cpu, Layers, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import heroBg from '../assets/bg-hero.jpg';
 
 export default function Hero({ onOpenResume }) {
   const [pulseActive, setPulseActive] = useState(false);
@@ -12,21 +13,20 @@ export default function Hero({ onOpenResume }) {
   };
 
   return (
-    <section id="overview" className="relative pt-32 pb-20 lg:py-32 min-h-[88vh] flex items-center overflow-hidden">
-      {/* High-Impact Full Intro Background Photo Wallpaper */}
+    <section id="overview" className="relative pt-28 pb-16 lg:py-28 min-h-[88vh] flex items-center overflow-hidden">
+      {/* Ambient Full Intro Background Photo Wallpaper */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img 
-          src={personalInfo.heroBgImage} 
-          alt="Sai Shankar Intro Background Wallpaper" 
-          className="w-full h-full object-cover object-[center_20%] opacity-45 sm:opacity-55 filter saturate-105 contrast-110 scale-105 transition-opacity duration-700"
+          src={heroBg} 
+          alt="Sai Shankar Ambient Background Wallpaper" 
+          className="w-full h-full object-cover object-[center_25%] opacity-20 filter saturate-120 blur-[2px] scale-105"
         />
-        {/* Gradient Overlay: Dark fade on left for readable typography, glowing transition into picture */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-[#070a12]/85 to-[#070a12]/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/70"></div>
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-[#070a12]/90 to-[#070a12]/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/80"></div>
+        <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[160px]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10 relative">
+      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-12 items-center z-10 relative">
         
         {/* Left Column Text & Headlines */}
         <motion.div 
@@ -62,12 +62,12 @@ export default function Hero({ onOpenResume }) {
             Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">High-Throughput Financial</span> & Cloud Systems.
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal mb-10 leading-relaxed">
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal mb-8 leading-relaxed">
             Senior Software Engineer with 5+ years of experience designing and operating mission-critical backend microservices, Kafka event streaming pipelines, and cloud infrastructure processing 10M+ daily requests with 99.99% availability.
           </p>
 
           {/* Key Metrics Counter Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-2xl mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-2xl mb-8">
             {personalInfo.stats.map((stat, idx) => (
               <div key={idx} className="bg-[#0d1322]/90 backdrop-blur-md border border-slate-800 rounded-xl p-4 text-center hover:border-blue-500/40 transition-all shadow-xl group">
                 <div className="text-2xl sm:text-3xl font-bold font-sans text-blue-400 group-hover:text-cyan-400 transition-colors mb-1">
@@ -107,52 +107,54 @@ export default function Hero({ onOpenResume }) {
           </div>
         </motion.div>
 
-        {/* Right Column: Live Pipeline Node Telemetry Card */}
+        {/* Right Column: High-Visibility Intro Picture Showcase & System Telemetry Card */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-5 flex flex-col justify-center"
+          className="lg:col-span-5 flex flex-col items-center justify-center relative"
         >
-          <div className="w-full bg-[#0d1322]/95 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
-              <div className="flex items-center gap-2">
-                <Server className="w-5 h-5 text-blue-400" />
-                <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">Live Pipeline State</span>
-              </div>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-semibold">
-                <Activity className="w-3 h-3 animate-pulse" /> 10M+ REQS/DAY
-              </span>
-            </div>
+          <div className="w-full max-w-md lg:max-w-none rounded-3xl p-2 bg-gradient-to-b from-blue-500/30 via-slate-800/50 to-slate-900/80 shadow-2xl relative overflow-hidden group">
+            
+            {/* Glowing Accent Ring */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-cyan-400/20 blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
 
-            {/* Pipeline Telemetry Items */}
-            <div className="space-y-3.5 font-mono text-xs">
-              <div className="p-3.5 rounded-xl bg-[#070a12] border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Ingestion Topic:</span>
-                <span className="text-blue-400 font-semibold">pricing.realtime.v1</span>
-              </div>
+            {/* High-Visibility Wallpaper Portrait */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[14/10] bg-[#070a12]">
+              <img 
+                src={heroBg} 
+                alt="Sai Shankar Senior Software Engineer Wallpaper" 
+                className="w-full h-full object-cover object-[center_20%] saturate-110 contrast-105 group-hover:scale-105 transition-transform duration-700"
+              />
+              
+              {/* Subtle Bottom Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/30 to-transparent"></div>
 
-              <div className="p-3.5 rounded-lg bg-[#070a12] border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Microservice Cluster:</span>
-                <span className="text-cyan-400 font-semibold">Java 17 / Spring Boot</span>
-              </div>
+              {/* Status Overlay Badge */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#070a12]/80 backdrop-blur-md border border-slate-700/80 text-blue-400 font-mono text-[11px] font-semibold">
+                  <Activity className="w-3.5 h-3.5 text-blue-400 animate-pulse" /> 10M+ REQS / DAY
+                </span>
 
-              <div className="p-3.5 rounded-lg bg-[#070a12] border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Optimization:</span>
-                <span className="text-emerald-400 font-semibold">-35% Latency Boost</span>
-              </div>
-
-              <div className="p-3.5 rounded-lg bg-[#070a12] border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Availability SLA:</span>
-                <span className="text-amber-400 font-semibold">99.99% Fault Tolerant</span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-300 font-mono text-[11px] font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 99.99% SLA
+                </span>
               </div>
             </div>
 
-            {/* Event Simulator Trigger */}
-            <div className="mt-6 pt-4 border-t border-slate-800">
+            {/* Live Pipeline Telemetry Footer Card */}
+            <div className="p-4 sm:p-5 bg-[#0d1322]/95 backdrop-blur-md rounded-b-2xl border-t border-slate-800">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Server className="w-4 h-4 text-blue-400" />
+                  <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">Live Pipeline Node</span>
+                </div>
+                <span className="font-mono text-[11px] text-cyan-400">Java 17 / Kafka</span>
+              </div>
+
               <button
                 onClick={handlePulse}
-                className={`w-full py-3.5 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
+                className={`w-full py-2.5 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
                   pulseActive
                     ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50'
                     : 'bg-blue-600/10 border border-blue-500/30 text-blue-400 hover:bg-blue-600 hover:text-white'
@@ -162,6 +164,7 @@ export default function Hero({ onOpenResume }) {
                 {pulseActive ? 'Propagating Event Payload...' : 'Test Event Ingestion Stream'}
               </button>
             </div>
+
           </div>
         </motion.div>
 
