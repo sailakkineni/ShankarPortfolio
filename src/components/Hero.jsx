@@ -1,35 +1,57 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowRight, FileText, Zap, ShieldCheck, Activity, Server, Cpu, Layers } from 'lucide-react';
+import { FileText, Zap, ShieldCheck, Activity, Server, Cpu, Layers, Sparkles, Sliders, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import heroBg from '../assets/bg-hero.jpg';
+import heroBgStudio from '../assets/bg-hero.jpg';
+import heroBgGlasses from '../assets/bg-hero-glasses.jpg';
 
 export default function Hero({ onOpenResume }) {
   const [pulseActive, setPulseActive] = useState(false);
+  const [photoStyle, setPhotoStyle] = useState('studio'); // 'studio' or 'glasses'
 
   const handlePulse = () => {
     setPulseActive(true);
     setTimeout(() => setPulseActive(false), 2000);
   };
 
+  const activePhoto = photoStyle === 'studio' ? heroBgStudio : heroBgGlasses;
+
   return (
-    <section id="overview" className="relative pt-32 pb-20 lg:py-32 min-h-[90vh] flex items-center overflow-hidden bg-[#070a12]">
+    <section id="overview" className="relative pt-28 pb-16 lg:py-28 min-h-[92vh] flex items-center overflow-hidden bg-[#070a12]">
       
-      {/* High-Visibility Zoomed-Out Background Wallpaper (Right-Aligned & Crisp) */}
+      {/* Dynamic Futuristic Blueprint & Radar Grid Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Radial Lighting Pools */}
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[160px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px]"></div>
+
+        {/* Ambient Grid Wallpaper Mask */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      </div>
+
+      {/* High-Visibility Zoomed-Out Background Wallpaper Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-end">
-        <div className="w-full lg:w-[55%] h-full relative flex items-center justify-center lg:justify-end">
-          <img 
-            src={heroBg} 
-            alt="Sai Shankar Senior Software Engineer Wallpaper" 
-            className="h-full w-full lg:w-auto max-h-[95vh] object-contain object-center lg:object-right opacity-80 sm:opacity-90 filter saturate-105 contrast-105 transition-all duration-700 [mask-image:linear-gradient(to_right,transparent_0%,black_25%)]"
-          />
-          {/* Subtle Right & Bottom Vignettes for Smooth Layout Integration */}
+        <div className="w-full lg:w-[58%] h-full relative flex items-center justify-center lg:justify-end pr-0 lg:pr-10">
+          <AnimatePresence mode="wait">
+            <motion.img 
+              key={photoStyle}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 0.88, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              src={activePhoto} 
+              alt="Sai Shankar Executive Wallpaper" 
+              className="h-full w-full lg:w-auto max-h-[92vh] object-contain object-center lg:object-right filter saturate-[1.08] contrast-[1.05] [mask-image:linear-gradient(to_right,transparent_0%,black_20%)]"
+            />
+          </AnimatePresence>
+
+          {/* Smooth Fade Overlay Lines */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/50"></div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10 relative">
+      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-12 items-center z-10 relative">
         
         {/* Left Column Text & Headlines */}
         <motion.div 
@@ -38,7 +60,7 @@ export default function Hero({ onOpenResume }) {
           transition={{ duration: 0.6 }}
           className="lg:col-span-7 flex flex-col items-start"
         >
-          {/* Status Badges */}
+          {/* Status & Photo Style Toggle Pill */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-semibold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
@@ -54,6 +76,30 @@ export default function Hero({ onOpenResume }) {
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
               AWS CERTIFIED DEVELOPER
             </a>
+
+            {/* Photo Style Interactive Selector */}
+            <div className="inline-flex items-center p-0.5 rounded-full bg-[#0d1322] border border-slate-800 font-mono text-[11px]">
+              <button
+                onClick={() => setPhotoStyle('studio')}
+                className={`px-3 py-1 rounded-full transition-all ${
+                  photoStyle === 'studio' 
+                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Studio Look
+              </button>
+              <button
+                onClick={() => setPhotoStyle('glasses')}
+                className={`px-3 py-1 rounded-full transition-all ${
+                  photoStyle === 'glasses' 
+                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Executive Glasses
+              </button>
+            </div>
           </div>
 
           {/* Main Title Header */}
@@ -65,14 +111,14 @@ export default function Hero({ onOpenResume }) {
             Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">High-Throughput Financial</span> & Cloud Systems.
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal mb-10 leading-relaxed drop-shadow-md">
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal mb-8 leading-relaxed drop-shadow-md">
             Senior Software Engineer with 5+ years of experience designing and operating mission-critical backend microservices, Kafka event streaming pipelines, and cloud infrastructure processing 10M+ daily requests with 99.99% availability.
           </p>
 
           {/* Key Metrics Counter Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-2xl mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 w-full max-w-2xl mb-8">
             {personalInfo.stats.map((stat, idx) => (
-              <div key={idx} className="bg-[#0d1322]/90 backdrop-blur-md border border-slate-800/90 rounded-xl p-4 text-center hover:border-blue-500/40 transition-all shadow-xl group">
+              <div key={idx} className="bg-[#0d1322]/85 backdrop-blur-md border border-slate-800/90 rounded-xl p-4 text-center hover:border-blue-500/40 transition-all shadow-xl group">
                 <div className="text-2xl sm:text-3xl font-bold font-sans text-blue-400 group-hover:text-cyan-400 transition-colors mb-1">
                   {stat.value}
                 </div>
@@ -110,18 +156,20 @@ export default function Hero({ onOpenResume }) {
           </div>
         </motion.div>
 
-        {/* Right Column: Glassmorphic Translucent Telemetry Card */}
+        {/* Right Column: Creative Glassmorphic System Telemetry Card */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:col-span-5 flex flex-col justify-center"
         >
-          <div className="w-full bg-[#0d1322]/70 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-2xl">
+          <div className="w-full bg-[#0d1322]/65 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-2xl group hover:border-blue-500/50 transition-colors">
+            
+            {/* Live Holographic Radar Header */}
             <div className="flex items-center justify-between border-b border-slate-700/50 pb-4 mb-5">
               <div className="flex items-center gap-2">
                 <Server className="w-5 h-5 text-blue-400" />
-                <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">Live Pipeline State</span>
+                <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">Live Pipeline Telemetry</span>
               </div>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-semibold">
                 <Activity className="w-3 h-3 animate-pulse" /> 10M+ REQS/DAY
