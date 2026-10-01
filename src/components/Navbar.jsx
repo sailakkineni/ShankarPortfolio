@@ -17,6 +17,7 @@ export default function Navbar({ onOpenResume }) {
 
   const navItems = [
     { label: 'Overview', href: '#overview' },
+    { label: 'About', href: '#about' },
     { label: 'Experience', href: '#experience' },
     { label: 'Architecture', href: '#architecture' },
     { label: 'Skills', href: '#skills' },

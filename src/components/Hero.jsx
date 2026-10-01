@@ -22,7 +22,7 @@ export default function Hero({ onOpenResume }) {
         />
         {/* Dark radial gradient overlay for seamless dark mode integration */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/80 to-[#070a12]/95"></div>
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#070a12]/60 to-[#070a12]"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-[#070a12]/60 to-[#070a12]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center z-10 relative">
