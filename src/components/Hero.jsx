@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FileText, Zap, ShieldCheck, Activity, Server, Cpu, Layers, Sparkles, Sliders, CheckCircle2 } from 'lucide-react';
+import { FileText, Zap, ShieldCheck, Activity, Server, CheckCircle2, Sparkles } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import heroBgStudio from '../assets/bg-hero.jpg';
 import heroBgGlasses from '../assets/bg-hero-glasses.jpg';
@@ -19,36 +19,11 @@ export default function Hero({ onOpenResume }) {
   return (
     <section id="overview" className="relative pt-28 pb-16 lg:py-28 min-h-[92vh] flex items-center overflow-hidden bg-[#070a12]">
       
-      {/* Dynamic Futuristic Blueprint & Radar Grid Background */}
+      {/* Dynamic Ambient Glow & Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Radial Lighting Pools */}
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[160px]"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px]"></div>
-
-        {/* Ambient Grid Wallpaper Mask */}
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]"></div>
-      </div>
-
-      {/* High-Visibility Zoomed-Out Background Wallpaper Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-end">
-        <div className="w-full lg:w-[58%] h-full relative flex items-center justify-center lg:justify-end pr-0 lg:pr-10">
-          <AnimatePresence mode="wait">
-            <motion.img 
-              key={photoStyle}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 0.88, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.5 }}
-              src={activePhoto} 
-              alt="Sai Shankar Executive Wallpaper" 
-              className="h-full w-full lg:w-auto max-h-[92vh] object-contain object-center lg:object-right filter saturate-[1.08] contrast-[1.05] [mask-image:linear-gradient(to_right,transparent_0%,black_20%)]"
-            />
-          </AnimatePresence>
-
-          {/* Smooth Fade Overlay Lines */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-transparent to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/50"></div>
-        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-12 items-center z-10 relative">
@@ -60,7 +35,7 @@ export default function Hero({ onOpenResume }) {
           transition={{ duration: 0.6 }}
           className="lg:col-span-7 flex flex-col items-start"
         >
-          {/* Status & Photo Style Toggle Pill */}
+          {/* Status Badges */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-semibold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
@@ -76,30 +51,6 @@ export default function Hero({ onOpenResume }) {
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
               AWS CERTIFIED DEVELOPER
             </a>
-
-            {/* Photo Style Interactive Selector */}
-            <div className="inline-flex items-center p-0.5 rounded-full bg-[#0d1322] border border-slate-800 font-mono text-[11px]">
-              <button
-                onClick={() => setPhotoStyle('studio')}
-                className={`px-3 py-1 rounded-full transition-all ${
-                  photoStyle === 'studio' 
-                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                Studio Look
-              </button>
-              <button
-                onClick={() => setPhotoStyle('glasses')}
-                className={`px-3 py-1 rounded-full transition-all ${
-                  photoStyle === 'glasses' 
-                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                Executive Glasses
-              </button>
-            </div>
           </div>
 
           {/* Main Title Header */}
@@ -156,63 +107,98 @@ export default function Hero({ onOpenResume }) {
           </div>
         </motion.div>
 
-        {/* Right Column: Creative Glassmorphic System Telemetry Card */}
+        {/* Right Column: 100% Unobscured Executive Wallpaper Portrait Canvas */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-5 flex flex-col justify-center"
+          className="lg:col-span-5 flex flex-col items-center justify-center relative"
         >
-          <div className="w-full bg-[#0d1322]/65 backdrop-blur-xl border border-slate-700/60 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-2xl group hover:border-blue-500/50 transition-colors">
+          <div className="w-full max-w-md lg:max-w-none rounded-3xl p-2 bg-gradient-to-b from-blue-500/30 via-slate-800/50 to-slate-900/80 shadow-2xl relative overflow-hidden group">
             
-            {/* Live Holographic Radar Header */}
-            <div className="flex items-center justify-between border-b border-slate-700/50 pb-4 mb-5">
-              <div className="flex items-center gap-2">
-                <Server className="w-5 h-5 text-blue-400" />
-                <span className="font-mono text-xs text-white font-bold tracking-wider uppercase">Live Pipeline Telemetry</span>
-              </div>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-semibold">
-                <Activity className="w-3 h-3 animate-pulse" /> 10M+ REQS/DAY
+            {/* Glowing Accent Ring */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-cyan-400/20 blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
+
+            {/* Photo Style Selector Header Bar */}
+            <div className="flex items-center justify-between px-4 py-2.5 bg-[#070a12]/90 backdrop-blur-md border-b border-slate-800 rounded-t-2xl z-20 relative">
+              <span className="font-mono text-xs text-slate-300 font-semibold flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" /> Executive Look
               </span>
+
+              <div className="inline-flex items-center p-0.5 rounded-full bg-[#0d1322] border border-slate-800 font-mono text-[10px]">
+                <button
+                  onClick={() => setPhotoStyle('studio')}
+                  className={`px-2.5 py-0.5 rounded-full transition-all ${
+                    photoStyle === 'studio' 
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm' 
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  Studio Suit
+                </button>
+                <button
+                  onClick={() => setPhotoStyle('glasses')}
+                  className={`px-2.5 py-0.5 rounded-full transition-all ${
+                    photoStyle === 'glasses' 
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm' 
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  Glasses Look
+                </button>
+              </div>
             </div>
 
-            {/* Pipeline Telemetry Items */}
-            <div className="space-y-3 font-mono text-xs">
-              <div className="p-3.5 rounded-xl bg-[#070a12]/80 border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Ingestion Topic:</span>
-                <span className="text-blue-400 font-semibold">pricing.realtime.v1</span>
-              </div>
+            {/* 100% Unobscured Crystal-Clear Portrait Frame */}
+            <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[14/11] bg-[#070a12]">
+              <AnimatePresence mode="wait">
+                <motion.img 
+                  key={photoStyle}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
+                  src={activePhoto} 
+                  alt="Sai Shankar Executive Portrait" 
+                  className="w-full h-full object-cover object-[center_20%] saturate-110 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                />
+              </AnimatePresence>
 
-              <div className="p-3.5 rounded-lg bg-[#070a12]/80 border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Microservice Cluster:</span>
-                <span className="text-cyan-400 font-semibold">Java 17 / Spring Boot</span>
-              </div>
+              {/* Status Overlay Badges floating at top corners */}
+              <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#070a12]/80 backdrop-blur-md border border-slate-700/80 text-blue-400 font-mono text-[11px] font-semibold shadow-md">
+                  <Activity className="w-3.5 h-3.5 text-blue-400 animate-pulse" /> 10M+ REQS / DAY
+                </span>
 
-              <div className="p-3.5 rounded-lg bg-[#070a12]/80 border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Optimization:</span>
-                <span className="text-emerald-400 font-semibold">-35% Latency Boost</span>
-              </div>
-
-              <div className="p-3.5 rounded-lg bg-[#070a12]/80 border border-slate-800/90 flex items-center justify-between">
-                <span className="text-slate-400">Availability SLA:</span>
-                <span className="text-amber-400 font-semibold">99.99% Fault Tolerant</span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-300 font-mono text-[11px] font-semibold shadow-md">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 99.99% SLA
+                </span>
               </div>
             </div>
 
-            {/* Event Simulator Trigger */}
-            <div className="mt-6 pt-4 border-t border-slate-800">
+            {/* Compact System Telemetry Control Bar beneath the photo */}
+            <div className="p-4 bg-[#0d1322]/95 backdrop-blur-md rounded-b-2xl border-t border-slate-800 space-y-3">
+              <div className="flex items-center justify-between font-mono text-xs">
+                <div className="flex items-center gap-2 text-slate-300">
+                  <Server className="w-4 h-4 text-blue-400" />
+                  <span className="font-bold uppercase tracking-wider text-white">Live Pipeline Node</span>
+                </div>
+                <span className="text-cyan-400 font-semibold">Java 17 • Kafka Cluster</span>
+              </div>
+
               <button
                 onClick={handlePulse}
-                className={`w-full py-3.5 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
+                className={`w-full py-2.5 rounded-xl font-mono text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
                   pulseActive
                     ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50'
-                    : 'bg-blue-600/20 border border-blue-500/40 text-blue-300 hover:bg-blue-600 hover:text-white'
+                    : 'bg-blue-600/10 border border-blue-500/30 text-blue-400 hover:bg-blue-600 hover:text-white'
                 }`}
               >
                 <Zap className={`w-3.5 h-3.5 ${pulseActive ? 'animate-bounce' : ''}`} />
                 {pulseActive ? 'Propagating Event Payload...' : 'Test Event Ingestion Stream'}
               </button>
             </div>
+
           </div>
         </motion.div>
 
