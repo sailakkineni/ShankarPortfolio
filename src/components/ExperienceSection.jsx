@@ -14,24 +14,24 @@ export default function ExperienceSection() {
   );
 
   return (
-    <section id="experience" className="py-8 sm:py-12 relative">
+    <section id="experience" className="py-4 sm:py-6 relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-4 mb-6">
           <span className="font-mono text-xs font-bold text-blue-400 uppercase tracking-widest px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20">
             02. Career History
           </span>
-          <h2 className="text-2xl sm:text-4xl font-bold font-sans text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white">
             Where I've Worked
           </h2>
           <div className="h-[1px] bg-slate-800 flex-grow ml-4"></div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
           
           {/* Company Selector Column */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
+          <div className="lg:col-span-4 flex flex-col gap-2.5">
             <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
               Select Position
             </span>
@@ -41,7 +41,7 @@ export default function ExperienceSection() {
                 <button
                   key={exp.id}
                   onClick={() => setActiveCompanyIndex(idx)}
-                  className={`p-3.5 rounded-xl text-left font-sans transition-all border flex flex-col gap-0.5 shrink-0 lg:shrink ${
+                  className={`p-3 rounded-xl text-left font-sans transition-all border flex flex-col gap-0.5 shrink-0 lg:shrink ${
                     activeCompanyIndex === idx
                       ? 'bg-[#0d1322] border-blue-500 text-white shadow-xl shadow-blue-500/10'
                       : 'bg-[#070a12] border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
@@ -58,8 +58,8 @@ export default function ExperienceSection() {
             </div>
 
             {/* Keyword Search Filter Card */}
-            <div className="p-3.5 rounded-xl bg-[#0d1322] border border-slate-800">
-              <div className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-2">
+            <div className="p-3 rounded-xl bg-[#0d1322] border border-slate-800">
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-400 mb-1.5">
                 <Search className="w-3.5 h-3.5 text-blue-400" />
                 <span>Search Highlights</span>
               </div>
@@ -68,7 +68,7 @@ export default function ExperienceSection() {
                 placeholder="Search (e.g. Kafka, Latency, AWS)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-3 py-2 bg-[#070a12] border border-slate-800 rounded-lg text-xs font-mono text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-3 py-1.5 bg-[#070a12] border border-slate-800 rounded-lg text-xs font-mono text-white focus:outline-none focus:border-blue-500 transition-colors"
               />
             </div>
           </div>
@@ -80,12 +80,12 @@ export default function ExperienceSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
-              className="bg-[#0d1322] border border-slate-800 rounded-2xl p-5 sm:p-8 shadow-xl"
+              className="bg-[#0d1322] border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl"
             >
               {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-800 mb-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800 mb-4">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold font-sans text-white mb-1">
+                  <h3 className="text-lg sm:text-xl font-bold font-sans text-white mb-0.5">
                     {currentExp.role} <span className="text-blue-400">@ {currentExp.company}</span>
                   </h3>
                   <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-400">
@@ -102,7 +102,7 @@ export default function ExperienceSection() {
 
                 <a
                   href="#architecture"
-                  className="px-3.5 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-semibold hover:bg-blue-600 hover:text-white transition-all self-start sm:self-center flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-semibold hover:bg-blue-600 hover:text-white transition-all self-start sm:self-center flex items-center gap-1.5"
                 >
                   <Layers className="w-3.5 h-3.5" />
                   <span>View Topology</span>
@@ -110,10 +110,10 @@ export default function ExperienceSection() {
               </div>
 
               {/* Highlights List */}
-              <div className="space-y-3 mb-6">
+              <div className="space-y-2.5 mb-5">
                 {filteredHighlights.length > 0 ? (
                   filteredHighlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start gap-3 text-slate-300">
+                    <div key={index} className="flex items-start gap-2.5 text-slate-300">
                       <span className="text-blue-400 text-xs mt-1 shrink-0">▹</span>
                       <p className="text-xs sm:text-sm leading-relaxed font-normal text-slate-300">
                         {highlight}
@@ -121,22 +121,22 @@ export default function ExperienceSection() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-xs font-mono text-amber-400 py-3">
+                  <p className="text-xs font-mono text-amber-400 py-2">
                     No highlights match "{searchQuery}". Try clearing search filter.
                   </p>
                 )}
               </div>
 
               {/* Tech Stack Pills */}
-              <div className="pt-4 border-t border-slate-800">
-                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-2.5">
+              <div className="pt-3 border-t border-slate-800">
+                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
                   Technologies Used:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {currentExp.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-0.5 bg-[#070a12] text-slate-300 border border-slate-800 text-xs font-mono rounded-lg hover:border-blue-500/40 hover:text-blue-400 transition-colors"
+                      className="px-2 py-0.5 bg-[#070a12] text-slate-300 border border-slate-800 text-[11px] font-mono rounded-lg hover:border-blue-500/40 hover:text-blue-400 transition-colors"
                     >
                       {tech}
                     </span>

@@ -22,8 +22,8 @@ function App() {
       {/* Top Header Navbar */}
       <Navbar onOpenResume={() => setResumeOpen(true)} />
 
-      {/* Main Content Flow - Tightened Gaps */}
-      <main className="flex flex-col gap-8 sm:gap-12 pb-12">
+      {/* Main Content Flow - Seamless Tight Spacing */}
+      <main className="flex flex-col gap-0 pb-8">
         <Hero onOpenResume={() => setResumeOpen(true)} />
         <AboutSection />
         <ExperienceSection />
