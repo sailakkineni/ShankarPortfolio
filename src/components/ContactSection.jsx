@@ -68,6 +68,17 @@ export default function ContactSection() {
             </button>
           </div>
 
+          {/* GitHub Pill */}
+          <a 
+            href={personalInfo.github} 
+            target="_blank" 
+            rel="noreferrer"
+            className="bg-[#0d1322] border border-slate-800 hover:border-blue-500/40 px-5 py-3 rounded-xl flex items-center gap-2 text-white font-mono text-xs transition-colors"
+          >
+            <span className="text-blue-400 font-bold">GitHub:</span>
+            <span>sailakkineni</span>
+          </a>
+
           {/* Location Pill */}
           <div className="bg-[#0d1322] border border-slate-800 px-5 py-3 rounded-xl flex items-center gap-2">
             <MapPin className="w-4 h-4 text-emerald-400" />

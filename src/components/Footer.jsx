@@ -12,6 +12,14 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-blue-400 transition-colors"
+          >
+            GitHub Profile
+          </a>
+          <a
             href={personalInfo.awsBadgeUrl}
             target="_blank"
             rel="noreferrer"
