@@ -12,8 +12,20 @@ export default function Hero({ onOpenResume }) {
   };
 
   return (
-    <section id="overview" className="relative pt-32 pb-20 min-h-[90vh] flex items-center">
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center z-10">
+    <section id="overview" className="relative pt-32 pb-20 min-h-[92vh] flex items-center overflow-hidden">
+      {/* Background Hero Photo Layer with Subtle Vignette Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img 
+          src={personalInfo.heroBgImage} 
+          alt="Sai Shankar Ambient Background" 
+          className="w-full h-full object-cover object-center opacity-15 filter grayscale blur-[2px] scale-105"
+        />
+        {/* Dark radial gradient overlay for seamless dark mode integration */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/80 to-[#070a12]/95"></div>
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#070a12]/60 to-[#070a12]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center z-10 relative">
         
         {/* Left Column Text */}
         <motion.div 
@@ -40,23 +52,25 @@ export default function Hero({ onOpenResume }) {
             </a>
           </div>
 
-          {/* Title Header */}
-          <h1 className="font-sans text-5xl sm:text-7xl font-extrabold tracking-tight text-white mb-4 leading-[1.08]">
-            Sai Shankar
-          </h1>
+          {/* Title Header with Profile Avatar Badge */}
+          <div className="flex items-center gap-4 mb-4">
+            <h1 className="font-sans text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+              Sai Shankar
+            </h1>
+          </div>
 
           <h2 className="text-xl sm:text-3xl font-sans font-semibold text-slate-300 mb-6 leading-relaxed">
             Architecting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">High-Throughput Financial</span> & Cloud Systems.
           </h2>
 
-          <p className="text-slate-400 text-base sm:text-lg max-w-2xl font-normal mb-10 leading-relaxed">
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal mb-10 leading-relaxed">
             Senior Software Engineer with 5+ years of experience designing and operating mission-critical backend microservices, Kafka event streaming pipelines, and cloud infrastructure processing 10M+ daily requests with 99.99% availability.
           </p>
 
           {/* Key Metrics Counter Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-2xl mb-10">
             {personalInfo.stats.map((stat, idx) => (
-              <div key={idx} className="bg-[#0d1322] border border-slate-800 rounded-xl p-4 text-center hover:border-blue-500/40 transition-colors">
+              <div key={idx} className="bg-[#0d1322]/90 backdrop-blur-md border border-slate-800 rounded-xl p-4 text-center hover:border-blue-500/40 transition-colors shadow-lg">
                 <div className="text-2xl sm:text-3xl font-bold font-sans text-blue-400 mb-1">
                   {stat.value}
                 </div>
@@ -94,14 +108,37 @@ export default function Hero({ onOpenResume }) {
           </div>
         </motion.div>
 
-        {/* Right Column Interactive Node Card */}
+        {/* Right Column: Display Profile Card + Interactive Telemetry Node */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-5 flex flex-col items-center justify-center"
+          className="lg:col-span-5 flex flex-col items-center justify-center gap-6"
         >
-          <div className="w-full bg-[#0d1322] border border-slate-800 rounded-2xl p-6 relative overflow-hidden shadow-2xl">
+          {/* Profile Display Headshot Card */}
+          <div className="w-full bg-[#0d1322]/90 backdrop-blur-xl border border-slate-800 rounded-2xl p-5 shadow-2xl relative group hover:border-blue-500/50 transition-all flex items-center gap-5">
+            <div className="relative shrink-0">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-blue-500/60 p-0.5 shadow-lg shadow-blue-500/20">
+                <img 
+                  src={personalInfo.displayProfileImage} 
+                  alt="Sai Shankar Display Headshot" 
+                  className="w-full h-full object-cover object-top rounded-[14px]"
+                />
+              </div>
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0d1322] shadow"></span>
+            </div>
+
+            <div>
+              <h3 className="font-sans font-bold text-white text-lg sm:text-xl">Sai Shankar</h3>
+              <p className="text-xs font-mono text-blue-400 font-medium mb-1">Senior Software Engineer</p>
+              <p className="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+                <span>Morgan Stanley</span> • <span>New York, NY</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Interactive Live Pipeline Node */}
+          <div className="w-full bg-[#0d1322]/90 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 relative overflow-hidden shadow-2xl">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
               <div className="flex items-center gap-2">
                 <Server className="w-5 h-5 text-blue-400" />

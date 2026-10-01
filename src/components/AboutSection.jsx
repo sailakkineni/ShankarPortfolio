@@ -77,6 +77,25 @@ export default function AboutSection() {
 
           {/* Right Cards Column */}
           <div className="lg:col-span-5 space-y-6">
+
+            {/* Display Picture Card */}
+            <div className="bg-[#0d1322] border border-slate-800 rounded-2xl p-4 shadow-xl overflow-hidden group hover:border-blue-500/50 transition-all">
+              <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden border border-slate-800">
+                <img 
+                  src={personalInfo.displayProfileImage} 
+                  alt="Sai Shankar Display Headshot" 
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-transparent opacity-80"></div>
+                
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-xs">
+                  <div>
+                    <span className="text-white font-bold font-sans block text-base">Sai Shankar</span>
+                    <span className="text-blue-400">Senior Engineer @ Morgan Stanley</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             {/* AWS Certified Developer Card */}
             <div className="bg-[#0d1322] border border-amber-500/30 rounded-2xl p-6 relative overflow-hidden shadow-xl group hover:border-amber-500/60 transition-all">
