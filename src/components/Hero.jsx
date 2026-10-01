@@ -18,12 +18,12 @@ export default function Hero({ onOpenResume }) {
         <img 
           src={personalInfo.heroBgImage} 
           alt="Sai Shankar Intro Background Wallpaper" 
-          className="w-full h-full object-cover object-top opacity-25 filter grayscale contrast-125 scale-105"
+          className="w-full h-full object-cover object-[center_20%] opacity-45 sm:opacity-55 filter saturate-105 contrast-110 scale-105 transition-opacity duration-700"
         />
-        {/* Dark vignette & gradient overlays for optimal text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-[#070a12]/90 to-[#070a12]/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/60 to-[#070a12]/80"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-[140px]"></div>
+        {/* Gradient Overlay: Dark fade on left for readable typography, glowing transition into picture */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-[#070a12]/85 to-[#070a12]/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-[#070a12]/70"></div>
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10 relative">
