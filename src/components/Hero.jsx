@@ -1,32 +1,20 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { FileText, Zap, ShieldCheck, Activity, Server, Sparkles, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { FileText, Zap, ShieldCheck, Activity, CheckCircle2 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import heroBgStudio from '../assets/bg-hero.jpg';
-import heroBgGlasses from '../assets/bg-hero-glasses.jpg';
+import heroBg from '../assets/bg-hero.jpg';
 
 export default function Hero({ onOpenResume }) {
-  const [photoStyle, setPhotoStyle] = useState('studio'); // 'studio' or 'glasses'
-  const activePhoto = photoStyle === 'studio' ? heroBgStudio : heroBgGlasses;
-
   return (
     <section id="overview" className="relative pt-28 pb-16 lg:py-28 min-h-[90vh] flex items-center overflow-hidden bg-[#070a12]">
       
       {/* Background Image Layer (Positioned on the Right, Blending Seamlessly into #070a12 on the Left) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex justify-end">
         <div className="w-full lg:w-[52%] h-full relative">
-          <AnimatePresence mode="wait">
-            <motion.img 
-              key={photoStyle}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 0.95, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.5 }}
-              src={activePhoto} 
-              alt="Sai Shankar Executive Portrait" 
-              className="w-full h-full object-cover object-[center_18%] filter saturate-[1.08] contrast-[1.05]"
-            />
-          </AnimatePresence>
+          <img 
+            src={heroBg} 
+            alt="Sai Shankar Executive Portrait" 
+            className="w-full h-full object-cover object-[center_18%] opacity-95 filter saturate-[1.08] contrast-[1.05]"
+          />
 
           {/* Seamless Gradient Blends: Blends photo color into solid #070a12 on the left & top/bottom */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#070a12] via-[#070a12]/75 via-40% to-transparent"></div>
@@ -45,7 +33,7 @@ export default function Hero({ onOpenResume }) {
           transition={{ duration: 0.6 }}
           className="lg:col-span-7 flex flex-col items-start"
         >
-          {/* Status & Photo Style Toggle Pills */}
+          {/* Status Badges */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono text-xs font-semibold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
@@ -61,30 +49,6 @@ export default function Hero({ onOpenResume }) {
               <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
               AWS CERTIFIED DEVELOPER
             </a>
-
-            {/* Photo Look Switcher */}
-            <div className="inline-flex items-center p-0.5 rounded-full bg-[#0d1322]/90 border border-slate-800 font-mono text-[11px]">
-              <button
-                onClick={() => setPhotoStyle('studio')}
-                className={`px-3 py-1 rounded-full transition-all ${
-                  photoStyle === 'studio' 
-                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                Studio Look
-              </button>
-              <button
-                onClick={() => setPhotoStyle('glasses')}
-                className={`px-3 py-1 rounded-full transition-all ${
-                  photoStyle === 'glasses' 
-                    ? 'bg-blue-600 text-white font-semibold shadow-md' 
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                Executive Glasses
-              </button>
-            </div>
           </div>
 
           {/* Main Title Header */}
