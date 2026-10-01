@@ -51,72 +51,53 @@ export default function AboutSection() {
 
             {/* Highlights Grid */}
             <div className="grid sm:grid-cols-2 gap-3 pt-4 text-xs font-mono text-slate-300">
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Java 17 & Spring Boot Microservices</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Apache Kafka Event-Streaming</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Oracle DB & MongoDB Query Tuning</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>AWS (ECS, Lambda, RDS, S3, EC2)</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>OAuth 2.0 / OpenID / JWT / RBAC</span>
               </div>
-              <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#0d1322]/60 border border-slate-800/60">
+              <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[#0d1322]/80 border border-slate-800/80">
                 <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Prometheus, Grafana & CloudWatch</span>
               </div>
             </div>
           </div>
 
-          {/* Right Cards Column */}
+          {/* Right Cards Column: Credentials & Degrees */}
           <div className="lg:col-span-5 space-y-6">
 
-            {/* Display Headshot Showcase Card */}
-            <div className="bg-[#0d1322] border border-slate-800 rounded-2xl p-4 shadow-xl overflow-hidden group hover:border-blue-500/50 transition-all">
-              <div className="relative aspect-[4/3] sm:aspect-[16/10] w-full rounded-xl overflow-hidden border border-slate-800">
-                <img 
-                  src={personalInfo.displayProfileImage} 
-                  alt="Sai Shankar Display Headshot" 
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-transparent opacity-80"></div>
-                
-                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-xs">
-                  <div>
-                    <span className="text-white font-bold font-sans block text-base">Sai Shankar</span>
-                    <span className="text-blue-400 text-xs">Senior Engineer @ Morgan Stanley</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
             {/* AWS Certified Developer Card */}
             <div className="bg-[#0d1322] border border-amber-500/30 rounded-2xl p-6 relative overflow-hidden shadow-xl group hover:border-amber-500/60 transition-all">
               <div className="flex items-start justify-between mb-4">
-                <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                  <Award className="w-5 h-5" />
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                  <Award className="w-6 h-6" />
                 </div>
                 <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono text-[10px] font-bold uppercase tracking-wider">
                   Verified 2025
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold font-sans text-white mb-1 group-hover:text-amber-300 transition-colors">
+              <h3 className="text-xl font-bold font-sans text-white mb-1 group-hover:text-amber-300 transition-colors">
                 AWS Certified Developer
               </h3>
               <p className="text-xs font-mono text-amber-400 mb-3">Associate Level • Amazon Web Services</p>
               
-              <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+              <p className="text-xs text-slate-400 mb-6 leading-relaxed">
                 Official AWS credential validating expertise in developing, deploying, and debugging cloud applications across AWS ECS, Lambda, RDS, S3, EC2, and CloudWatch.
               </p>
 
