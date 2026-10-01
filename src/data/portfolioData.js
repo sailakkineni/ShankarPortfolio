@@ -6,10 +6,8 @@ export const personalInfo = {
   location: "New York, NY",
   phone: "+1 8389109931",
   github: "https://github.com/sailakkineni",
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/shankarjavadev/",
   awsBadgeUrl: "https://www.credly.com/badges/509076f4-56c1-4b78-9bb5-62b16b5164b4/linked_in_profile",
-  heroBgImage: `${import.meta.env.BASE_URL}images/bg-hero.jpg`,
-  displayProfileImage: `${import.meta.env.BASE_URL}images/profile-display.jpg`,
   summary: `Senior Software Engineer with 5+ years of experience designing, building, and operating scalable backend and distributed systems using Java, Spring Boot, microservices, and cloud technologies. Experienced in developing high-throughput financial and transaction-processing platforms supporting payments, refunds, chargebacks, reconciliation, asset pricing, portfolio valuation, and investment workflows. Strong background in distributed systems, event-driven architectures, asynchronous processing, concurrency, API design, database optimization, fault tolerance, observability, and production reliability. Experienced with AWS, Apache Kafka, Oracle, MongoDB, Redis, Docker, and Kubernetes, with a focus on building secure, highly available, and maintainable services. Additionally experienced in conversational AI using Dialogflow and Python-based webhooks, integrating AI-driven workflows with enterprise Java services and APIs.`,
   stats: [
     { value: "5+", label: "Years Experience", desc: "Enterprise distributed systems" },
