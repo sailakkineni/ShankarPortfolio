@@ -32,27 +32,30 @@ export default function SystemArchitecture() {
   };
 
   return (
-    <section id="architecture" className="py-4 sm:py-6 relative">
+    <section id="architecture" className="py-16 md:py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         
+        {/* Section Divider */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-16" />
+
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-3">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
           <div>
-            <div className="flex items-center gap-4 mb-1">
-              <span className="font-mono text-xs font-bold text-blue-400 uppercase tracking-widest px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+            <div className="flex items-center gap-4 mb-2">
+              <span className="font-mono text-xs font-bold text-blue-400 uppercase tracking-widest px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
                 03. Blueprint
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-white">
+              <h2 className="text-3xl sm:text-4xl font-bold font-sans text-white">
                 System Topology & Architecture
               </h2>
             </div>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl font-normal">
+            <p className="text-slate-400 text-sm max-w-2xl font-normal">
               Interactive flow topologies demonstrating high-throughput event processing, asynchronous microservices, and database tuning.
             </p>
           </div>
 
           {/* Selector Tabs */}
-          <div className="flex flex-wrap gap-1.5 p-1 bg-[#0d1322] rounded-xl border border-slate-800 shrink-0">
+          <div className="flex flex-wrap gap-2 p-1.5 bg-[#0d1322] rounded-xl border border-slate-800 shrink-0">
             {experiences.map((exp) => (
               <button
                 key={exp.id}
@@ -60,7 +63,7 @@ export default function SystemArchitecture() {
                   setSelectedCompanyId(exp.id);
                   setActiveStep(0);
                 }}
-                className={`px-3 py-1.5 rounded-lg font-mono text-xs font-semibold transition-all flex items-center gap-2 ${
+                className={`px-4 py-2 rounded-lg font-mono text-xs font-semibold transition-all flex items-center gap-2 ${
                   selectedCompanyId === exp.id
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
@@ -74,15 +77,15 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Main Stage Card */}
-        <div className="bg-[#0d1322] border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl relative overflow-hidden">
+        <div className="bg-[#0d1322] border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
           
           {/* Header Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800/80 mb-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80 mb-8">
             <div>
-              <span className="text-[11px] font-mono text-blue-400 uppercase tracking-wider block mb-0.5">
+              <span className="text-xs font-mono text-blue-400 uppercase tracking-wider block mb-1">
                 Active Architecture Spec • {activeExp.company}
               </span>
-              <h3 className="text-base sm:text-lg font-bold font-sans text-white">
+              <h3 className="text-xl sm:text-2xl font-bold font-sans text-white">
                 {activeExp.topology.title}
               </h3>
             </div>
@@ -90,7 +93,7 @@ export default function SystemArchitecture() {
             <button
               onClick={handleRunSimulation}
               disabled={simulating}
-              className={`px-3.5 py-1.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all ${
+              className={`px-5 py-2.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all ${
                 simulating
                   ? 'bg-blue-500/20 text-blue-400 border border-blue-500/40 cursor-wait'
                   : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30'
@@ -98,12 +101,12 @@ export default function SystemArchitecture() {
             >
               {simulating ? (
                 <>
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  <RefreshCw className="w-4 h-4 animate-spin" />
                   Processing Stream...
                 </>
               ) : (
                 <>
-                  <Play className="w-3.5 h-3.5 fill-white" />
+                  <Play className="w-4 h-4 fill-white" />
                   Simulate Event Pulse
                 </>
               )}
@@ -111,7 +114,7 @@ export default function SystemArchitecture() {
           </div>
 
           {/* Node Flow Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
             {activeExp.topology.nodes.map((node, index) => {
               const stepNum = index + 1;
               const isActive = activeStep === stepNum;
@@ -120,7 +123,7 @@ export default function SystemArchitecture() {
               return (
                 <div key={index} className="relative flex flex-col items-center">
                   <div
-                    className={`w-full p-3.5 rounded-xl bg-[#070a12] border-2 transition-all flex flex-col justify-between h-full ${
+                    className={`w-full p-5 rounded-xl bg-[#070a12] border-2 transition-all flex flex-col justify-between h-full ${
                       isActive
                         ? 'border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.3)] bg-blue-500/5'
                         : isDone
@@ -129,27 +132,27 @@ export default function SystemArchitecture() {
                     }`}
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between mb-3">
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-blue-400">
                           STEP 0{stepNum}
                         </span>
                         {isDone ? (
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                         ) : (
-                          <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-blue-400 animate-ping' : 'bg-slate-700'}`} />
+                          <div className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-blue-400 animate-ping' : 'bg-slate-700'}`} />
                         )}
                       </div>
 
-                      <h4 className="text-xs sm:text-sm font-bold text-white mb-0.5">
+                      <h4 className="text-sm font-bold text-white mb-1">
                         {node.title}
                       </h4>
-                      <p className="text-[10px] font-mono text-blue-400 mb-2">
+                      <p className="text-[11px] font-mono text-blue-400 mb-3">
                         {node.role}
                       </p>
                     </div>
 
-                    <div className="mt-2 pt-2 border-t border-slate-800/80">
-                      <span className="text-[10px] font-mono text-slate-400 leading-tight block">
+                    <div className="mt-3 pt-3 border-t border-slate-800/80">
+                      <span className="text-[11px] font-mono text-slate-400 leading-tight block">
                         {node.tech}
                       </span>
                     </div>
@@ -157,7 +160,7 @@ export default function SystemArchitecture() {
 
                   {index < activeExp.topology.nodes.length - 1 && (
                     <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-20 items-center justify-center">
-                      <ArrowRight className={`w-4 h-4 ${activeStep > stepNum ? 'text-emerald-400' : activeStep === stepNum ? 'text-blue-400 animate-pulse' : 'text-slate-700'}`} />
+                      <ArrowRight className={`w-5 h-5 ${activeStep > stepNum ? 'text-emerald-400' : activeStep === stepNum ? 'text-blue-400 animate-pulse' : 'text-slate-700'}`} />
                     </div>
                   )}
                 </div>
@@ -166,9 +169,9 @@ export default function SystemArchitecture() {
           </div>
 
           {/* Log Status Footer */}
-          <div className="mt-5 p-3 rounded-xl bg-[#070a12] border border-slate-800 font-mono text-xs text-slate-300 flex items-center justify-between flex-wrap gap-2.5">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+          <div className="mt-8 p-4 rounded-xl bg-[#070a12] border border-slate-800 font-mono text-xs text-slate-300 flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-3">
+              <Sparkles className="w-4 h-4 text-blue-400 shrink-0" />
               <span>
                 {activeStep === 0 && "Click 'Simulate Event Pulse' to test payload propagation across system nodes."}
                 {activeStep === 1 && "▶ [Ingress] Validating security tokens (OAuth 2.0 / JWT)..."}
@@ -179,7 +182,7 @@ export default function SystemArchitecture() {
               </span>
             </div>
 
-            <div className="flex items-center gap-3 text-[11px] text-slate-400">
+            <div className="flex items-center gap-4 text-[11px] text-slate-400">
               <span>Latency: <strong className="text-blue-400">&lt;50ms</strong></span>
               <span>Availability: <strong className="text-emerald-400">99.99%</strong></span>
             </div>
